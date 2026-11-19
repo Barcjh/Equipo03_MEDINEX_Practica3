@@ -2,18 +2,23 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDINEX — Prototipo de gestión de citas administrativas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MEDINEX — Prototipo</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div id="app"></div>
     <footer style="text-align: center; font-size: 0.8rem; color: #666; padding: 20px; background: #f4f6fa;">
-        Prototipo de demostración (Práctica 3) · datos ficticios · no es el sistema completo ni está validado para uso real · MEDINEX no almacena información clínica.
+        Prototipo de demostración (Práctica 3) · datos ficticios · no es el sistema completo · MEDINEX no almacena información clínica.
     </footer>
+
+    <!-- 1. Primero los datos -->
     <script src="datos.js"></script>
-    <script src="store.js"></script>
+    <!-- 2. Luego las herramientas de UI (MX.h) -->
     <script src="ui.js"></script>
+    <!-- 3. Luego las reglas de negocio (MX.seed, MX.reservar) -->
+    <script src="store.js"></script>
+    <!-- 4. Al final la navegación y renderizado -->
     <script src="app.js"></script>
 </body>
 </html>
