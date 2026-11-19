@@ -21,6 +21,34 @@ button.rojo{background:#c00000}
 .toast{position:fixed;right:1rem;bottom:3rem;padding:.7rem 1rem;border-radius:6px;color:#fff;background:#274e13}.toast.err{background:#9c0006}
 .tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.85rem}
 th{background:var(--az);color:#fff}th,td{border:1px solid #cfd6e4;padding:.35rem;text-align:left}
+/* Estilos extra para simular el diseño de Figma */
+.sidebar {
+    background: #1f3864;
+    color: white;
+    width: 260px;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar h2 { color: white; font-size: 1.2rem; margin-bottom: 2rem; }
+.sidebar-nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    text-align: left;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0;
+    margin: 0;
+}
+.sidebar-nav button:hover { background: rgba(255,255,255,0.1); }
+.sidebar-nav button.logout { color: #f8cbad; margin-top: auto; border-bottom: none; }
+.main-content { flex: 1; padding: 2rem; background: #f4f6fa; min-height: 100vh; }
+.layout { display: flex; flex-wrap: nowrap; align-items: stretch; }
+@media (max-width: 768px) { .layout { flex-wrap: wrap; } .sidebar { width: 100%; min-height: auto; } }
 td.libre{background:var(--ok)}td.oc{background:var(--oc)}td.bl{background:var(--bl)}td button{margin:0;background:transparent;color:var(--tx);padding:0}
 .kpis{display:flex;gap:1rem;flex-wrap:wrap}.kpi{flex:1;min-width:150px;background:#dce6f4;border-radius:6px;padding:.8rem}.kpi b{font-size:1.8rem;display:block}
 .bar{background:var(--az);color:#fff;padding:.2rem .5rem;margin:.25rem 0;border-radius:3px;font-size:.85rem;white-space:nowrap}
