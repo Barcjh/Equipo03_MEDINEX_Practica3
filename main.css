@@ -6,51 +6,98 @@ header h1{font-size:1.1rem;margin:0;flex:1}
 header a,header button{color:#fff;background:transparent;border:1px solid #fff;border-radius:4px;padding:.3rem .7rem;text-decoration:none;cursor:pointer;font-size:.9rem}
 header a.act{background:#fff;color:var(--az)}
 main{padding:1rem;max-width:1000px;margin:auto}
-.card{background:#fff;border:1px solid #cfd6e4;border-radius:6px;padding:1rem;margin-bottom:1rem}
-.narrow{max-width:380px;margin:2rem auto}
-label{display:block;margin:.5rem 0;font-weight:bold;font-size:.9rem}
-input,select{display:block;width:100%;padding:.4rem;margin-top:.2rem;border:1px solid #9aa5bd;border-radius:4px}
-input[type=checkbox]{display:inline;width:auto}
-button{background:var(--az);color:#fff;border:0;border-radius:4px;padding:.45rem .9rem;cursor:pointer;margin:.3rem .3rem .3rem 0}
+
+/* Tarjetas y Formularios */
+.card{background:#fff;border:1px solid #cfd6e4;border-radius:6px;padding:2rem;margin-bottom:1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+label{display:block;margin:.5rem 0;font-weight:bold;font-size:.85rem; color: #1f3864; text-transform: uppercase;}
+input,select{display:block;width:100%;padding:.6rem;margin-top:.2rem;border:1px solid #9aa5bd;border-radius:4px; font-family: Arial;}
+button{background:var(--az);color:#fff;border:0;border-radius:4px;padding:.6rem 1rem;cursor:pointer;margin:.3rem .3rem .3rem 0; font-weight: bold;}
 button:disabled{background:#bbb;cursor:not-allowed}
 button.rojo{background:#c00000}
-.row{display:flex;gap:1rem;flex-wrap:wrap}.row>*{flex:1;min-width:180px}
-.grid{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
-.slot{margin:0;color:var(--tx)}.slot.libre{background:var(--ok)}.slot.ocup{background:#e6e6e6;color:#777}.slot.sel{outline:3px solid var(--az)}
-.msg{padding:.5rem;border-radius:4px;margin:.5rem 0}.msg.ok{background:#e2f0d9;color:#274e13}.msg.err{background:#fde9e7;color:#9c0006}
-.toast{position:fixed;right:1rem;bottom:3rem;padding:.7rem 1rem;border-radius:6px;color:#fff;background:#274e13}.toast.err{background:#9c0006}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.85rem}
-th{background:var(--az);color:#fff}th,td{border:1px solid #cfd6e4;padding:.35rem;text-align:left}
-/* Estilos extra para simular el diseño de Figma */
+
+/* Tablas */
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+th{background:var(--az);color:#fff}th,td{border:1px solid #cfd6e4;padding:.5rem;text-align:left}
+td.libre{background:var(--ok)}td.oc{background:var(--oc)}td.bl{background:var(--bl)}td button{margin:0;background:transparent;color:var(--tx);padding:0}
+
+/* KPIs */
+.kpis{display:flex;gap:1rem;flex-wrap:wrap}.kpi{flex:1;min-width:150px;background:#fff; border:1px solid #cfd6e4; border-radius:6px;padding:1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
+.kpi b{font-size:2rem;display:block; color: #1f3864; margin-bottom: 0.5rem;}
+
+/* Toast y Avisos */
+.toast{position:fixed;right:1rem;bottom:3rem;padding:.7rem 1rem;border-radius:6px;color:#fff;background:#274e13; z-index: 1000;}
+.nota{font-size:.85rem;color:#555}
+footer{text-align:center;font-size:.75rem;color:#555;padding:1rem}
+
+/* ========================================= */
+/* DISEÑO TIPO FIGMA (Barra lateral y Layout) */
+/* ========================================= */
+.layout { 
+    display: flex; 
+    flex-wrap: nowrap; 
+    align-items: stretch; 
+    height: 100vh; 
+    width: 100%;
+}
+
 .sidebar {
     background: #1f3864;
     color: white;
-    width: 260px;
-    min-height: 100vh;
-    padding: 2rem 1rem;
+    width: 280px;
+    min-width: 280px;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
 }
-.sidebar h2 { color: white; font-size: 1.2rem; margin-bottom: 2rem; }
+
+.sidebar h2 { 
+    color: white; 
+    font-size: 1.5rem; 
+    margin-bottom: 2rem; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .sidebar-nav button {
     background: transparent;
-    color: white;
+    color: rgba(255,255,255,0.8);
     border: none;
     text-align: left;
-    padding: 1rem 0.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 6px;
     width: 100%;
     cursor: pointer;
-    border-radius: 0;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
+    font-weight: normal;
+    transition: background 0.3s;
 }
-.sidebar-nav button:hover { background: rgba(255,255,255,0.1); }
-.sidebar-nav button.logout { color: #f8cbad; margin-top: auto; border-bottom: none; }
-.main-content { flex: 1; padding: 2rem; background: #f4f6fa; min-height: 100vh; }
-.layout { display: flex; flex-wrap: nowrap; align-items: stretch; }
-@media (max-width: 768px) { .layout { flex-wrap: wrap; } .sidebar { width: 100%; min-height: auto; } }
-td.libre{background:var(--ok)}td.oc{background:var(--oc)}td.bl{background:var(--bl)}td button{margin:0;background:transparent;color:var(--tx);padding:0}
-.kpis{display:flex;gap:1rem;flex-wrap:wrap}.kpi{flex:1;min-width:150px;background:#dce6f4;border-radius:6px;padding:.8rem}.kpi b{font-size:1.8rem;display:block}
-.bar{background:var(--az);color:#fff;padding:.2rem .5rem;margin:.25rem 0;border-radius:3px;font-size:.85rem;white-space:nowrap}
-.nota{font-size:.85rem;color:#555}
-footer{text-align:center;font-size:.75rem;color:#555;padding:1rem}
+
+.sidebar-nav button:hover { 
+    background: rgba(255,255,255,0.1); 
+    color: white;
+}
+
+.sidebar-nav button.logout { 
+    color: #f8cbad; 
+    margin-top: auto; 
+}
+
+.main-content { 
+    flex: 1; 
+    padding: 3rem; 
+    background: #f4f6fa; 
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) { 
+    .layout { flex-wrap: wrap; height: auto; } 
+    .sidebar { width: 100%; min-width: 100%; min-height: auto; } 
+}
