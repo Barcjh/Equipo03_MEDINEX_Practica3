@@ -14,29 +14,60 @@ MX.crearSidebar = (activo) => {
     );
 };
 
-// 1. PANTALLA: LOGIN (Diseño de dos columnas como en Figma)
+// 1. PANTALLA: LOGIN (Con el cuadro rojo de error de Figma)
 MX.pantallaLogin = () => {
     return MX.h('div', { class: 'layout', style: 'height: 100vh;' },
         // Columna izquierda (Azul)
-        MX.h('div', { class: 'sidebar', style: 'width: 45%; justify-content: center; padding: 3rem;' },
-            MX.h('h1', { style: 'font-size: 2rem; margin-bottom: 1rem;' }, 'Una atención mejor organizada.'),
-            MX.h('p', { style: 'opacity: 0.8; margin-bottom: 2rem;' }, 'Un espacio común para coordinar las citas, los horarios y la atención administrativa de nuestra comunidad.'),
-            MX.h('p', { style: 'font-size: 0.8rem; opacity: 0.6; margin-top: auto;' }, 'Campus central · Gestión administrativa')
+        MX.h('div', { class: 'sidebar', style: 'width: 45%; justify-content: flex-start; padding: 3rem;' },
+            MX.h('div', { style: 'display: flex; align-items: center; gap: 10px; margin-bottom: 2rem;' }, 
+                MX.h('div', { style: 'background: #c00000; padding: 5px 10px; border-radius: 4px; font-weight: bold;' }, '+'),
+                MX.h('span', { style: 'font-size: 1.5rem;' }, 'MEDINEX')
+            ),
+            MX.h('p', { style: 'font-size: 0.8rem; letter-spacing: 1px; opacity: 0.8;' }, 'CLÍNICA UNIVERSITARIA'),
+            MX.h('h1', { style: 'font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1rem;' }, 'Una atención mejor organizada.'),
+            MX.h('p', { style: 'opacity: 0.8; margin-bottom: 3rem;' }, 'Un espacio común para coordinar las citas, los horarios y la atención administrativa de nuestra comunidad.'),
+            MX.h('div', { style: 'font-size: 0.85rem; opacity: 0.8; display: flex; flex-direction: column; gap: 1rem;' },
+                MX.h('span', {}, '🗓 Citas claras'),
+                MX.h('span', {}, '🔒 Acceso según tu función'),
+                MX.h('span', {}, '📝 Cambios trazables')
+            )
         ),
         // Columna derecha (Formulario)
-        MX.h('div', { class: 'main-content', style: 'display: flex; align-items: center; justify-content: center;' },
+        MX.h('div', { class: 'main-content', style: 'display: flex; align-items: center; justify-content: center; position: relative;' },
+            MX.h('p', { style: 'position: absolute; top: 2rem; right: 2rem; font-size: 0.8rem; color: #c00000; font-weight: bold;' }, '01 / ACCESO INSTITUCIONAL'),
             MX.h('div', { style: 'width: 100%; max-width: 400px;' },
                 MX.h('h2', { style: 'color: #1f3864; font-size: 2rem; margin-bottom: 0.5rem;' }, 'Bienvenido a MEDINEX'),
-                MX.h('p', { class: 'nota', style: 'margin-bottom: 2rem;' }, 'Inicia sesión con tu cuenta institucional para acceder a tu espacio de trabajo.'),
+                MX.h('p', { class: 'nota', style: 'margin-bottom: 1.5rem;' }, 'Inicia sesión con tu cuenta institucional para acceder a tu espacio de trabajo.'),
                 
+                // EL CUADRO ROJO DE ERROR
+                MX.h('div', { style: 'background: #fde9e7; color: #9c0006; padding: 1rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 1.5rem; border-left: 4px solid #c00000;' },
+                    MX.h('strong', {}, '⚠ No pudimos iniciar sesión.'),
+                    MX.h('br', {}),
+                    'El correo o la contraseña no son correctos. Revisa ambos campos e inténtalo de nuevo.'
+                ),
+
                 MX.h('label', {}, 'CORREO INSTITUCIONAL *'),
-                MX.h('input', { type: 'email', value: 'lucia.torres@universidad.edu', style: 'margin-bottom: 1rem;' }),
+                MX.h('input', { type: 'email', value: 'lucia.torres@universidad.edu', style: 'margin-bottom: 1rem; border-color: #1f3864;' }),
                 
                 MX.h('label', {}, 'CONTRASEÑA *'),
-                MX.h('input', { type: 'password', value: '********', style: 'margin-bottom: 1.5rem;' }),
+                MX.h('input', { type: 'password', value: '********', style: 'margin-bottom: 1.5rem; border-color: #9aa5bd;' }),
+                MX.h('p', { style: 'font-size: 0.75rem; color: #666; margin-top: -1rem; margin-bottom: 1.5rem;' }, 'Obligatoria. Respeta las mayúsculas y minúsculas.'),
+
+                // SIMULACIÓN DE ROLES
+                MX.h('label', {}, 'SIMULAR ROL (Para pruebas):'),
+                MX.h('select', { id: 'sel-rol', style: 'margin-bottom: 1.5rem;' },
+                    MX.h('option', { value: 'paciente' }, 'Paciente'),
+                    MX.h('option', { value: 'medico' }, 'Médico / Profesional'),
+                    MX.h('option', { value: 'recepcion' }, 'Recepción')
+                ),
                 
                 MX.h('button', { 
-                    onclick: () => { MX.S.rol = 'paciente'; MX.pantallaActual = 'menu'; MX.render(); },
+                    onclick: () => { 
+                        const rolSeleccionado = document.getElementById('sel-rol').value;
+                        MX.S.rol = rolSeleccionado; 
+                        MX.pantallaActual = 'menu'; 
+                        MX.render(); 
+                    },
                     style: 'width: 100%; padding: 0.8rem; font-size: 1rem;'
                 }, 'Iniciar sesión')
             )
@@ -51,6 +82,7 @@ MX.pantallaMenu = () => {
         MX.h('div', { class: 'main-content' },
             MX.h('h1', { style: 'color: #1f3864;' }, 'Panel principal'),
             MX.h('p', {}, 'Bienvenido al sistema de gestión de citas administrativas.'),
+            MX.h('p', { style: 'font-weight: bold; color: #1f3864;' }, 'Rol actual: ' + MX.S.rol.toUpperCase()),
             MX.h('div', { class: 'kpis', style: 'margin-top: 2rem;' },
                 MX.h('div', { class: 'kpi' }, MX.h('b', {}, '14'), 'Citas de hoy'),
                 MX.h('div', { class: 'kpi' }, MX.h('b', {}, '6'), 'Disponibles'),
