@@ -1,0 +1,28 @@
+:root{--az:#1f3864;--bg:#f4f6fa;--ok:#c6e0b4;--oc:#f8cbad;--bl:#ffe699;--tx:#1b1b1b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--tx)}
+header{background:var(--az);color:#fff;padding:.6rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+header h1{font-size:1.1rem;margin:0;flex:1}
+header a,header button{color:#fff;background:transparent;border:1px solid #fff;border-radius:4px;padding:.3rem .7rem;text-decoration:none;cursor:pointer;font-size:.9rem}
+header a.act{background:#fff;color:var(--az)}
+main{padding:1rem;max-width:1000px;margin:auto}
+.card{background:#fff;border:1px solid #cfd6e4;border-radius:6px;padding:1rem;margin-bottom:1rem}
+.narrow{max-width:380px;margin:2rem auto}
+label{display:block;margin:.5rem 0;font-weight:bold;font-size:.9rem}
+input,select{display:block;width:100%;padding:.4rem;margin-top:.2rem;border:1px solid #9aa5bd;border-radius:4px}
+input[type=checkbox]{display:inline;width:auto}
+button{background:var(--az);color:#fff;border:0;border-radius:4px;padding:.45rem .9rem;cursor:pointer;margin:.3rem .3rem .3rem 0}
+button:disabled{background:#bbb;cursor:not-allowed}
+button.rojo{background:#c00000}
+.row{display:flex;gap:1rem;flex-wrap:wrap}.row>*{flex:1;min-width:180px}
+.grid{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+.slot{margin:0;color:var(--tx)}.slot.libre{background:var(--ok)}.slot.ocup{background:#e6e6e6;color:#777}.slot.sel{outline:3px solid var(--az)}
+.msg{padding:.5rem;border-radius:4px;margin:.5rem 0}.msg.ok{background:#e2f0d9;color:#274e13}.msg.err{background:#fde9e7;color:#9c0006}
+.toast{position:fixed;right:1rem;bottom:3rem;padding:.7rem 1rem;border-radius:6px;color:#fff;background:#274e13}.toast.err{background:#9c0006}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.85rem}
+th{background:var(--az);color:#fff}th,td{border:1px solid #cfd6e4;padding:.35rem;text-align:left}
+td.libre{background:var(--ok)}td.oc{background:var(--oc)}td.bl{background:var(--bl)}td button{margin:0;background:transparent;color:var(--tx);padding:0}
+.kpis{display:flex;gap:1rem;flex-wrap:wrap}.kpi{flex:1;min-width:150px;background:#dce6f4;border-radius:6px;padding:.8rem}.kpi b{font-size:1.8rem;display:block}
+.bar{background:var(--az);color:#fff;padding:.2rem .5rem;margin:.25rem 0;border-radius:3px;font-size:.85rem;white-space:nowrap}
+.nota{font-size:.85rem;color:#555}
+footer{text-align:center;font-size:.75rem;color:#555;padding:1rem}
