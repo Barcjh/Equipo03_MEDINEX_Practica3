@@ -71,3 +71,5 @@ MX.bloquear = (p, f, a, b, motivo, autor) => {   // RF-05 / RN-06
   MX.aplicarBloqueo(bl, autor);
   return { ok: true, msg: 'Bloqueo aplicado y reflejado en la disponibilidad.' };
 };
+
+
